@@ -1,17 +1,17 @@
 # MacroMate
 
-Command-line macro recorder and player for Linux.
+MacroMate is a keyboard & mouse automation tool for Linux. It uses [libevdev](https://www.freedesktop.org/wiki/Software/libevdev/) for event handling, which means it can be used with Wayland or X11. MacroMate was inspired primarily by the [AutoHotkey](https://www.autohotkey.com/) and [ydotool](https://www.autohotkey.com/) projects.
 
 ## Features
 
 - Record keyboard and mouse input events (keys, buttons, movement, wheel)
 - Simple scripting language
-- Uses kernel evdev API - works on Wayland and X11
+- Display server agnostic, all you need is a kernel!
 
 ## Requirements
 
-- Linux kernel with evdev support
-- Rust 1.85+ (edition 2024)
+- Linux
+- Rust
 - Root access or permissions to read `/dev/input/event*` devices
 
 ## Installation
@@ -26,13 +26,13 @@ sudo cp target/release/macromate /usr/local/bin/
 ### Record a macro
 
 ```bash
-macromate record my_macro.txt
+# macromate record my_macro.macro
 ```
 
 ### Play back a macro
 
 ```bash
-# macromate play my_macro.txt
+macromate play my_macro.macro
 ```
 
 ## File Format
@@ -45,7 +45,8 @@ Coming soon!
 - [x] Repeat/loop playback
 - [ ] Configurable hotkeys (currently F1 is hardcoded)
 - [ ] Better scripting language
+- [ ] X keyboard extension support
 
 ## License
 
-AGPL-3.0-or-later
+GPL-3.0-or-later
