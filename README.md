@@ -1,6 +1,6 @@
-# MacroMate
+# EvKey
 
-MacroMate is a keyboard & mouse automation tool for Linux. It uses [libevdev](https://www.freedesktop.org/wiki/Software/libevdev/) for event handling, which means it can be used with Wayland or X11. MacroMate was inspired primarily by the [AutoHotkey](https://www.autohotkey.com/) and [ydotool](https://www.autohotkey.com/) projects.
+EvKey is a keyboard & mouse automation tool for Linux. It uses [libevdev](https://www.freedesktop.org/wiki/Software/libevdev/) for event handling, which means it can be used with Wayland or X11. EvKey was inspired primarily by the [AutoHotkey](https://www.autohotkey.com/) and [ydotool](https://www.autohotkey.com/) projects.
 
 ## Features
 
@@ -18,7 +18,7 @@ MacroMate is a keyboard & mouse automation tool for Linux. It uses [libevdev](ht
 
 ```bash
 cargo build --release
-sudo cp target/release/macromate /usr/local/bin/
+sudo cp target/release/evkey /usr/local/bin/
 ```
 
 ## Usage
@@ -26,13 +26,13 @@ sudo cp target/release/macromate /usr/local/bin/
 ### Record a macro
 
 ```bash
-# macromate record my_macro.macro
+# evkey record my_macro.macro
 ```
 
 ### Play back a macro
 
 ```bash
-macromate play my_macro.macro
+evkey play my_macro.macro
 ```
 
 ## File Format

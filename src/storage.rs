@@ -18,7 +18,7 @@ use std::path::Path;
 pub fn save<P: AsRef<Path>>(path: P, events: &[RecordedEvent]) -> io::Result<()> {
     let mut file = File::create(path)?;
 
-    writeln!(file, "# MacroMate Macro")?;
+    writeln!(file, "# EvKey Macro")?;
     writeln!(file, "# Layout: QWERTY")?;
     writeln!(file)?;
 

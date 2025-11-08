@@ -24,14 +24,14 @@ fn main() -> Result<(), Box<dyn Error>> {
     match args[1].as_str() {
         "record" => {
             if args.len() < 3 {
-                eprintln!("Usage: macromate record <output_file>");
+                eprintln!("Usage: evkey record <output_file>");
                 return Ok(());
             }
             record_macro(&args[2])?;
         }
         "play" => {
             if args.len() < 3 {
-                eprintln!("Usage: macromate play [--loop] <input_file>");
+                eprintln!("Usage: evkey play [--loop] <input_file>");
                 return Ok(());
             }
 
@@ -47,7 +47,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                 Some(file) => play_macro(file, loop_flag)?,
                 None => {
                     eprintln!("Error: No input file specified");
-                    eprintln!("Usage: macromate play [--loop] <input_file>");
+                    eprintln!("Usage: evkey play [--loop] <input_file>");
                     return Ok(());
                 }
             }
@@ -64,11 +64,11 @@ fn main() -> Result<(), Box<dyn Error>> {
 }
 
 fn print_usage() {
-    println!("MacroMate - AutoHotkey-style macro recorder for Linux\n");
+    println!("EvKey - AutoHotkey-style macro recorder for Linux\n");
     println!("Usage:");
-    println!("  macromate record <output_file>       Record a macro to file");
-    println!("  macromate play [--loop] <input_file> Play back a recorded macro");
-    println!("  macromate list-devices               List available input devices");
+    println!("  evkey record <output_file>       Record a macro to file");
+    println!("  evkey play [--loop] <input_file> Play back a recorded macro");
+    println!("  evkey list-devices               List available input devices");
     println!("\nNote: You may need to run with sudo to access input devices");
 }
 
@@ -101,8 +101,8 @@ fn list_devices() -> Result<(), Box<dyn Error>> {
 }
 
 fn record_macro(output_file: &str) -> Result<(), Box<dyn Error>> {
-    println!("MacroMate Recorder");
-    println!("==================\n");
+    println!("EvKey Recorder");
+    println!("==============\n");
 
     println!("Auto-detecting keyboards and mice...\n");
 
@@ -194,8 +194,8 @@ fn record_macro(output_file: &str) -> Result<(), Box<dyn Error>> {
 }
 
 fn play_macro(input_file: &str, loop_forever: bool) -> Result<(), Box<dyn Error>> {
-    println!("MacroMate Player");
-    println!("================\n");
+    println!("EvKey Player");
+    println!("============\n");
 
     if !Path::new(input_file).exists() {
         eprintln!("Error: File '{}' not found", input_file);
@@ -210,7 +210,7 @@ fn play_macro(input_file: &str, loop_forever: bool) -> Result<(), Box<dyn Error>
 
     thread::sleep(Duration::from_secs(3));
 
-    let mut player = Player::new("macromate-playback")?;
+    let mut player = Player::new("evkey-playback")?;
 
     loop {
         player.play(&events)?;
